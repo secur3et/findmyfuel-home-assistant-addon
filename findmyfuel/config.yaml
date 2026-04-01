@@ -14,7 +14,7 @@ arch:
   - armhf
   - armv7
   - i386
-url: "https://github.com/YOUR_GITHUB_USERNAME/findmyfuel-addon"
+url: "https://github.com/secur3et/findmyfuel-home-assistant-addon"
 ports:
   8099/tcp: 8099
 options:
