@@ -1,0 +1,67 @@
+name: "Find My Fuel"
+version: "0.1.0"
+slug: "findmyfuel"
+description: >-
+  Cache UK Fuel Finder station and price data locally and expose
+  Home Assistant-friendly nearby fuel summaries for tracked entities.
+startup: services
+boot: auto
+init: false
+homeassistant_api: true
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+url: "https://github.com/YOUR_GITHUB_USERNAME/findmyfuel-addon"
+ports:
+  8099/tcp: 8099
+options:
+  fuel_finder_client_id: null
+  fuel_finder_client_secret: null
+  api_base_url: "https://www.fuel-finder.service.gov.uk"
+  oauth_base_url: "https://www.fuel-finder.service.gov.uk"
+  oauth_token_path: "/api/v1/oauth/generate_access_token"
+  oauth_scope: "fuelfinder.read"
+  station_path: "/api/v1/pfs"
+  price_path: "/api/v1/pfs/fuel-prices"
+  request_timeout_seconds: 30
+  refresh_interval_minutes: 30
+  include_temporarily_closed: false
+  listen_host: "0.0.0.0"
+  listen_port: 8099
+  targets:
+    - slug: "alice_car"
+      entity_id: "person.alice"
+      friendly_name: "Alice Car"
+      fuel_type: "E10"
+      radius_km: 10
+      limit: 5
+    - slug: "van"
+      entity_id: "device_tracker.work_van"
+      friendly_name: "Work Van"
+      fuel_type: "B7_STANDARD"
+      radius_km: 20
+      limit: 5
+schema:
+  fuel_finder_client_id: str
+  fuel_finder_client_secret: password
+  api_base_url: url
+  oauth_base_url: url
+  oauth_token_path: str
+  oauth_scope: "str?"
+  station_path: str
+  price_path: str
+  request_timeout_seconds: float
+  refresh_interval_minutes: int
+  include_temporarily_closed: bool
+  listen_host: str
+  listen_port: port
+  targets:
+    - slug: str
+      entity_id: str
+      friendly_name: str
+      fuel_type: str
+      radius_km: float
+      limit: int

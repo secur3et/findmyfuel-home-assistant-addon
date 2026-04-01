@@ -1,0 +1,45 @@
+configuration:
+  fuel_finder_client_id:
+    name: Fuel Finder Client ID
+    description: Fuel Finder information-recipient client ID.
+  fuel_finder_client_secret:
+    name: Fuel Finder Client Secret
+    description: Fuel Finder information-recipient client secret.
+  api_base_url:
+    name: API Base URL
+    description: Base URL for Fuel Finder API requests.
+  oauth_base_url:
+    name: OAuth Base URL
+    description: Base URL for Fuel Finder OAuth token requests.
+  oauth_token_path:
+    name: OAuth Token Path
+    description: Path for generating access tokens.
+  oauth_scope:
+    name: OAuth Scope
+    description: Optional OAuth scope to request.
+  station_path:
+    name: Station Path
+    description: API path for station pages.
+  price_path:
+    name: Price Path
+    description: API path for price pages.
+  request_timeout_seconds:
+    name: Request Timeout
+    description: Upstream API timeout in seconds.
+  refresh_interval_minutes:
+    name: Refresh Interval
+    description: Minutes between automatic background refreshes.
+  include_temporarily_closed:
+    name: Include Temporarily Closed
+    description: Include temporarily closed stations in nearby results.
+  listen_host:
+    name: Listen Host
+    description: Host interface the API binds to inside the container.
+  listen_port:
+    name: Listen Port
+    description: Port exposed by the add-on API.
+  targets:
+    name: Targets
+    description: Home Assistant entities to track, one preferred fuel type per target.
+network:
+  8099/TCP: Find My Fuel API
