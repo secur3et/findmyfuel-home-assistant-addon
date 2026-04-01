@@ -8,7 +8,7 @@ RUN apk add --no-cache python3 py3-pip
 COPY app/pyproject.toml /app/pyproject.toml
 COPY app/README.md /app/README.md
 COPY app/src /app/src
-RUN pip3 install --no-cache-dir /app
+RUN pip3 install --no-cache-dir --break-system-packages /app
 
 COPY run.sh /run.sh
 RUN chmod a+x /run.sh
